@@ -1,0 +1,104 @@
+
+<div id="slider" class="big">
+    <h1>Bienvenido a SimRacingReviews </h1>
+    <a [routerLink]="['/blog']" class="btn-white">Ir al blog</a>
+</div>
+<ng-template #loading>
+  <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+        <div class="center" *ngIf="postsDate$ | async as posts; else loading">
+            <section id="content">
+                <h2 class="subheader" id="subheader_last_or_new">Últimas Reviews</h2>
+                <!--Listado articulos-->
+                <div id="articles" class="last_articles"*ngFor="let post of posts.slice(0, 4)">
+                    <article class="article-item" id="article-template">
+                        <div class="image-wrap">
+                            <img [src]="post.imagePost" />
+                        </div>
+                        <h2>{{post.titlePost}}</h2>
+                        <span class="date">
+                            {{ post.datePost}}
+                        </span>
+                        <a [routerLink]="['/post', post.id]">Leer más</a>
+						<mat-card-actions>
+							<mat-chip-list>
+								<mat-chip *ngFor="let tag of post.tagsPost" [ngClass]="tag">
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rf1';">
+                                        Rfactor 1
+                                    </span>                                     
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rf2';">
+                                        Rfactor 2
+                                    </span>  
+                                    <span style="font-weight: bold;" *ngIf="tag == 'ams';">
+                                        Automobilista
+                                    </span>   
+                                    <span style="font-weight: bold;" *ngIf="tag == 'assetto';">
+                                        Assetto Corsa
+                                    </span>  
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rbr';">
+                                        Richard Burns Rally
+                                    </span>                                       					
+								</mat-chip>
+							</mat-chip-list>
+						</mat-card-actions>
+                        <div class="clearfix"></div>
+                    </article>
+                    <!--AÑADIR ARTICULOS VIA JS--> 
+                </div>
+                <div id="articles_search" class="articles_found" *ngFor="let post of posts" style="display: none;">
+                    <article  class="article-item" id="article-template_search">
+                        <div class="image-wrap">
+                            <img [src]="post.imagePost" />
+                        </div>
+                        <h2 class="titulo">{{post.titlePost}}</h2>
+                        <span class="date">
+                            {{ post.datePost}}
+                        </span>
+                        <a [routerLink]="['/post', post.id]">Leer más</a>
+                        <mat-card-actions>
+                            <mat-chip-list>
+                                <mat-chip *ngFor="let tag of post.tagsPost" [ngClass]="tag">
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rf1';">
+                                        Rfactor 1
+                                    </span>                                     
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rf2';">
+                                        Rfactor 2
+                                    </span>  
+                                    <span style="font-weight: bold;" *ngIf="tag == 'ams';">
+                                        Automobilista
+                                    </span>   
+                                    <span style="font-weight: bold;" *ngIf="tag == 'assetto';">
+                                        Assetto Corsa
+                                    </span>  
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rbr';">
+                                        Richard Burns Rally
+                                    </span>                                                         
+                                </mat-chip>
+                            </mat-chip-list>
+                        </mat-card-actions>
+                        <div class="clearfix"></div>
+                    </article>
+                    <!--AÑADIR ARTICULOS VIA JS--> 
+                </div>
+            </section>
+            <aside id="sidebar">
+                <div id="search" class="sidebar-item">
+                    <h3>Buscador</h3>
+                    <p>Encuentra el artículo que buscas</p>
+                    <div>
+                        <input type="text" id="id_buscador" name="buscador"/>
+                    </div>
+                    <input type="button" value="Buscar" class="btn"  id="boton_buscar" (click)="cogerElementos();"/>
+                </div>
+            </aside>          
+            <div class="clearfix"></div>
+        </div>
+        <footer id="footer" onclick="cogerFecha();">
+            <div class="center">
+                <p>
+                    &copy; SimRacingReviews por Fco. Javier González  
+                </p>
+            </div>
+        </footer>

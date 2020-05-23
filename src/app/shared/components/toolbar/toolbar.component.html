@@ -1,0 +1,40 @@
+  <header id="header">
+            <div class="center">
+                <!-- LOGO -->
+                <div id="logo">
+                    <img src="../../assets/images/icon-steering-wheel.png" class="app-logo" alt="Logotipo" />
+                    <span id="brand">
+                        SimRacing<strong>Reviews</strong>
+                    </span>
+                </div>
+                
+                <!-- MENU -->
+                <nav id="menu">
+                    <ul>
+                        <li>
+                            <a [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/blog']" [routerLinkActive]="['active']">Blog</a>
+                        </li>
+                        
+                        <li *ngIf="authSvc.userData | async">
+                            <a [routerLink]="['/admin']" [routerLinkActive]="['active']">Admin</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/about']" [routerLinkActive]="['active']">About</a>
+                        </li>
+                        <li *ngIf="authSvc.userData | async;" (click)="onLogout();">
+                            <a [routerLink]="['/logout']" [routerLinkActive]="['active']" >Logout</a>
+                        </li>                                              
+                        <li>
+                            <a [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+
+                <!--LIMPIAR FLOTADOS-->
+                <div class="clearfix"></div>
+            </div>
+        </header>

@@ -1,0 +1,73 @@
+<div id="slider" class="slider-small">
+    <h1>Blog</h1>
+</div>
+
+<div class="container" *ngIf="posts$ | async as posts; else loading">
+
+	<mat-card class="post-card" *ngFor="let post of posts" style="min-width: 300px;">
+        <div style="display: flex;">
+    		<mat-card-header>
+    			<mat-card-title>
+    				<a [routerLink]="['/post', post.id]">
+    					{{post.titlePost}}
+    				</a>
+
+    			</mat-card-title>
+                 <mat-chip-list>
+                <mat-chip class="boton_ficha">
+                    <a [routerLink]="['/post', post.id]">
+                        Ver ficha
+                    </a>                    
+                </mat-chip>
+            </mat-chip-list>               
+    		</mat-card-header>
+        </div>
+		<img matCardImage [src]="post.imagePost"/>
+		<mat-card-content>
+			<p  style="white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;">
+				{{ post.contentPost }}
+			</p>	
+		</mat-card-content>
+		<mat-divider></mat-divider>
+		<mat-card-actions>
+			<mat-chip-list>
+				<mat-chip *ngFor="let tag of post.tagsPost" [ngClass]="tag">
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rf1';">
+                                        Rfactor 1
+                                    </span>                                     
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rf2';">
+                                        Rfactor 2
+                                    </span>  
+                                    <span style="font-weight: bold;" *ngIf="tag == 'ams';">
+                                        Automobilista
+                                    </span>   
+                                    <span style="font-weight: bold;" *ngIf="tag == 'assetto';">
+                                        Assetto Corsa
+                                    </span>  
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rbr';">
+                                        Richard Burns Rally
+                                    </span>   				
+				</mat-chip>
+			</mat-chip-list>
+		</mat-card-actions>
+		<mat-divider></mat-divider>		
+	</mat-card>	
+
+</div>
+<ng-template #loading>
+  <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+<ng-template #loading>
+  <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+        <footer id="footer">
+            <div class="center">
+                <p>
+                    &copy; SimRacingReviews por Fco. Javier González 
+                </p>
+            </div>
+        </footer>

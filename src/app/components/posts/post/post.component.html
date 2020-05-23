@@ -1,0 +1,79 @@
+<!--
+<div class="container" *ngIf="post$ | async as post; else loading">
+	<mat-card class="post-card">
+			<img class="align-center" matCardImage [src]="post.imagePost"/>
+		<mat-card-content>			
+			<mat-card-title>
+					{{post.titlePost}}
+			</mat-card-title>	
+			<div style="display: flex;">
+			<div style="width: 60%; margin-right: 5%;">			
+			<p class="content">
+				{{ post.contentPost }}
+			</p>
+			</div>
+			
+				<iframe  [src]="getVideoIframe(post.videoUrl)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>	
+		</mat-card-content>
+	</mat-card>	
+
+</div>
+-->
+<div id="slider" class="slider-small">
+    
+</div>
+<ng-template #loading>
+  <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+        <div class="center" *ngIf="posts$ | async as post; else loading">
+            <section id="content">
+                    <article class="article-item article-detail">
+                        <div class="image-wrap">
+                            <img [src]="post.imagePost"/>
+                        </div>
+    
+                        <h1 class="subheader">{{post.titlePost}}</h1>
+                        <span class="date">
+                            {{ post.datePost }}
+                        </span>
+                        <span>
+                            {{ post.contentPost }}
+                        </span>
+                        <div class="clearfix"></div>
+                    </article>
+            </section>
+            <aside id="sidebar">
+                <div id="search" style="margin-top: 20px; margin-bottom: 5px;" class="sidebar-item" *ngFor="let tag of post.tagsPost" [ngClass]="tag">
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rf1';">
+                                        Rfactor 1
+                                    </span>                                     
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rf2';">
+                                        Rfactor 2
+                                    </span>  
+                                    <span style="font-weight: bold;" *ngIf="tag == 'ams';">
+                                        Automobilista
+                                    </span>   
+                                    <span style="font-weight: bold;" *ngIf="tag == 'assetto';">
+                                        Assetto Corsa
+                                    </span>  
+                                    <span style="font-weight: bold;" *ngIf="tag == 'rbr';">
+                                        Richard Burns Rally
+                                    </span> 
+                      
+                </div>
+                <iframe  [src]="getVideoIframe(post.videoUrl)" style="width: 100%;" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </aside>
+            <div class="clearfix"></div>
+        </div>
+
+        <footer id="footer">
+            <div class="center">
+                <p>
+                    &copy; SimRacingReviews por Fco. Javier González
+                </p>
+            </div>
+        </footer>
+     
