@@ -24,6 +24,7 @@ export class EditPostComponent implements OnInit {
     imagePost: new FormControl('', Validators.required),
     videoUrl: new FormControl('', Validators.required),
     datePost: new FormControl('', Validators.required),
+    downloadLinkPost: new FormControl('', Validators.required),
   });
 
   ngOnInit(): void {
@@ -52,6 +53,7 @@ export class EditPostComponent implements OnInit {
       tagsPost: this.post.tagsPost,
       videoUrl: this.post.videoUrl,
       datePost: new FormControl('', Validators.required),
+      downloadLinkPost: this.post.downloadLinkPost,
     });
   }
 }

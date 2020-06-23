@@ -39,9 +39,11 @@
                         <span class="date">
                             {{ post.datePost }}
                         </span>
-                        <span>
-                            {{ post.contentPost }}
-                        </span>
+                        
+                        <textarea class="long-text-read" readonly="true">{{ post.contentPost }}</textarea>
+                        <div *ngIf="post.downloadLinkPost">
+                            <a class="download_link" (click)="newTabLink(post.downloadLinkPost);">DESCARGA</a>
+                        </div>
                         <div class="clearfix"></div>
                     </article>
             </section>
@@ -68,12 +70,10 @@
             </aside>
             <div class="clearfix"></div>
         </div>
-
-        <footer id="footer">
+            <footer id="footer">
             <div class="center">
                 <p>
-                    &copy; SimRacingReviews por Fco. Javier González
+                    &copy; SimRacingReviews
                 </p>
             </div>
         </footer>
-     

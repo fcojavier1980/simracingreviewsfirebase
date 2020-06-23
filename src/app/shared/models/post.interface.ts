@@ -7,4 +7,5 @@ export interface PostI {
   fileRef?: string;
   videoUrl?: string;
   datePost?: Date;
+  downloadLinkPost?: string;
 }

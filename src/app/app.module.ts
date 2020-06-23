@@ -24,6 +24,7 @@ import { ModalComponent } from './shared/components/modal/modal.component';
 import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     ContainerAppComponent,
     ModalComponent,
     EditPostComponent,
+    FooterComponent,
   
 
   ],

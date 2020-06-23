@@ -53,7 +53,6 @@ export class HomeComponent implements OnInit {
   			var titulo = $( this ).text();
 
   			var is_contain = titulo.toUpperCase().indexOf(search_string.toUpperCase());
-  			console.log(is_contain);
   			if(is_contain >= 0 && search_string !=''){
   				$('.last_articles').hide();
   				var contenedor = $(current_obj).parent().parent();

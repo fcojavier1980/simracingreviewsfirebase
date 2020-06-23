@@ -34,5 +34,8 @@ export class PostComponent implements OnInit {
 	    return this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);   
 	}
 
+	newTabLink(url){
+		window.open(url, '_blank');
+	}
 	
 }

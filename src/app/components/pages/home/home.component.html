@@ -21,7 +21,7 @@
                         <span class="date">
                             {{ post.datePost}}
                         </span>
-                        <a [routerLink]="['/post', post.id]">Leer más</a>
+                        <a [routerLink]="['/post', post.id]" style="margin-bottom: 15px;">Leer más</a>
 						<mat-card-actions>
 							<mat-chip-list>
 								<mat-chip *ngFor="let tag of post.tagsPost" [ngClass]="tag">
@@ -94,11 +94,16 @@
                 </div>
             </aside>          
             <div class="clearfix"></div>
+<div style="margin-top: 25px; margin-bottom: 5px;">
+  <a href="https://www.cerotec.net/estadisticas-133623/simracingreviews-5dcb9.web.app" title="contador de visitas">
+    <img src="https://www.cerotec.net/contador.php?t=2&s=2&i=133623" alt="www.cerotec.net">
+  </a>
+</div>            
         </div>
-        <footer id="footer" onclick="cogerFecha();">
+        <footer id="footer">
             <div class="center">
                 <p>
-                    &copy; SimRacingReviews por Fco. Javier González  
+                    &copy; SimRacingReviews
                 </p>
             </div>
         </footer>

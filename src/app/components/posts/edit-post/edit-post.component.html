@@ -6,7 +6,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Content</mat-label>
-      <input matInput placeholder="Content post" formControlName="contentPost">
+      <textarea matInput placeholder="Content post" formControlName="contentPost"></textarea>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Video</mat-label>
@@ -21,6 +21,10 @@
         <mat-option value="rbr">RBR</mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Link</mat-label>
+      <input matInput placeholder="Link de descarga" formControlName="downloadLinkPost">
+    </mat-form-field>      
     <input type="date" placeholder="Video url" formControlName="datePost">
     <div class="container-input-file">
       <label class="custom-file">

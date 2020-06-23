@@ -19,6 +19,7 @@ export class NewPostComponent implements OnInit {
     imagePost: new FormControl('', Validators.required),
     videoUrl: new FormControl('', Validators.required),
     datePost: new FormControl('', Validators.required),
+    downloadLinkPost: new FormControl('', Validators.required),
   });
 
   ngOnInit(): void {
