@@ -35,18 +35,20 @@
                             <img [src]="post.imagePost"/>
                         </div>
     
-                        <h1 class="subheader">{{post.titlePost}}</h1>
-                        <span class="date">
+                        <h1 class="subheader" id="title-from-post">{{post.titlePost}}</h1>
+                        <span class="date" id="date-id">
                             {{ post.datePost }}
-                        </span>
-                        
+                        </span>                      
                         <textarea class="long-text-read" readonly="true">{{ post.contentPost }}</textarea>
                         <div *ngIf="post.downloadLinkPost">
                             <a class="download_link" (click)="newTabLink(post.downloadLinkPost);">DESCARGA</a>
                         </div>
+                        <input type="text" id="id-from-post" value="{{ post.id }}" style="display: none;">
+
                         <div class="clearfix"></div>
-                    </article>
+                    </article>  
             </section>
+
             <aside id="sidebar">
                 <div id="search" style="margin-top: 20px; margin-bottom: 5px;" class="sidebar-item" *ngFor="let tag of post.tagsPost" [ngClass]="tag">
                                     <span style="font-weight: bold;" *ngIf="tag == 'rf1';">
@@ -67,13 +69,7 @@
                       
                 </div>
                 <iframe  [src]="getVideoIframe(post.videoUrl)" style="width: 100%;" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </aside>
+            </aside>  
+            <app-new-comment [postIdentifier]= post.id ></app-new-comment>
             <div class="clearfix"></div>
         </div>
-            <footer id="footer">
-            <div class="center">
-                <p>
-                    &copy; SimRacingReviewsSpain
-                </p>
-            </div>
-        </footer>

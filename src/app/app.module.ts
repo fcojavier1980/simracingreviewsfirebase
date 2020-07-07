@@ -25,6 +25,7 @@ import { EditPostComponent } from './components/posts/edit-post/edit-post.compon
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { NewCommentComponent } from './components/posts/new-comment/new-comment.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     ModalComponent,
     EditPostComponent,
     FooterComponent,
+    NewCommentComponent,
   
 
   ],

@@ -225,9 +225,19 @@ html, body {
     background: #f7f7f7;
     padding: 20px;
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .sidebar-item h3{
+    text-transform: uppercase;
+    font-size: 18px;
+    margin:0px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #eee;
+}
+
+.sidebar-item h2{
     text-transform: uppercase;
     font-size: 18px;
     margin:0px;
@@ -442,7 +452,56 @@ textarea{
     text-align: center;    
 }
 
+.long-text-read{
+    border-style: none;
+    min-height: 500px;
+    resize: none;
+    font-size: 16px;
 
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;  
+}
+
+.small-text-write{
+    border-style: none;
+    height: auto;
+    min-height: 100px;
+
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;   
+}
+.text-write{
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;     
+}
+.commented-box{
+    border: 2px solid #d0d0d0;
+    border-radius: 5px;
+    margin-top: 10px;
+    min-width: 700px;
+    max-width: 700px;
+    display: flex;
+    background-color: #f7f7f7;
+    text-align: left;
+
+}
+
+.commented-home{
+    border: 2px solid #d0d0d0;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: grid;
+    background-color: #f7f7f7;
+    text-align: left;
+    padding-left: 5px;
+
+}
 /*RESPONSIVE*/
 
 /*Desde la anchura 963px hasta la anchura 1488px de pantalla*/

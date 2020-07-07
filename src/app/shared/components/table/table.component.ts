@@ -47,7 +47,6 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   onEditPost(post: PostI) {
-    console.log('Edit post', post);
     this.openDialog(post);
     
   }

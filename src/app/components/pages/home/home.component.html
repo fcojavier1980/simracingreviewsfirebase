@@ -12,7 +12,7 @@
             <section id="content">
                 <h2 class="subheader" id="subheader_last_or_new">Últimas Reviews</h2>
                 <!--Listado articulos-->
-                <div id="articles" class="last_articles"*ngFor="let post of posts.slice(0, 4)">
+                <div id="articles" class="last_articles" *ngFor="let post of posts.slice(0, 4)">
                     <article class="article-item" id="article-template">
                         <div class="image-wrap">
                             <img [src]="post.imagePost" />
@@ -92,18 +92,22 @@
                     </div>
                     <input type="button" value="Buscar" class="btn"  id="boton_buscar" (click)="cogerElementos();"/>
                 </div>
+                <div style="margin-top: 40px;">
+                    <h3>ÚLTIMOS COMENTARIOS</h3>
+                    <div *ngIf="comments$ | async as comments;">
+                        <div *ngFor="let comment of comments.slice(0, 4)" class="commented-home">
+                            <span style="font-weight: bold;">{{ comment.nombrePost }}</span>
+                            <span> comentó el {{ comment.datePost }} </span>
+                            <span style="font-style: italic;">{{ comment.comentarioPost}}</span>
+                            <span>{{ comment.titlePost}}</span>                            
+                        </div>  
+                    </div>
+                </div>   
             </aside>          
             <div class="clearfix"></div>
-<div style="margin-top: 25px; margin-bottom: 5px;">
-  <a href="https://www.cerotec.net/estadisticas-133623/simracingreviews-5dcb9.web.app" title="contador de visitas">
-    <img src="https://www.cerotec.net/contador.php?t=2&s=2&i=133623" alt="www.cerotec.net">
-  </a>
-</div>            
+            <div style="margin-top: 25px; margin-bottom: 5px;">
+              <a href="https://www.cerotec.net/estadisticas-133623/simracingreviews-5dcb9.web.app" title="contador de visitas">
+                <img src="https://www.cerotec.net/contador.php?t=2&s=2&i=133623" alt="www.cerotec.net">
+              </a>
+            </div>            
         </div>
-        <footer id="footer">
-            <div class="center">
-                <p>
-                    &copy; SimRacingReviewsSpain
-                </p>
-            </div>
-        </footer>

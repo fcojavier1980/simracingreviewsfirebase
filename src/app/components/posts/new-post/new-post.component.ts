@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostI } from '../../../shared/models/post.interface';
+import { CommentI } from '../../../shared/models/comment.interface';
 import { PostService } from '../post.service';
+import { CommentService } from '../comment.service';
+import { ActivatedRoute } from '@angular/router';
+
+
+declare var jQuery:any;
+declare var $:any;
 
 @Component({
   selector: 'app-new-post',

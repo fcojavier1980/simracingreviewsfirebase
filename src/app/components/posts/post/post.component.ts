@@ -4,6 +4,7 @@ import { PostService } from '../post.service';
 import { PostI } from '../../../shared/models/post.interface';
 import { Observable } from 'rxjs';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post',
@@ -20,6 +21,7 @@ export class PostComponent implements OnInit {
 	ngOnInit() {
 	  	const idPost = this.route.snapshot.params.id;
 	  	this.posts$ = this.postSvc.getOnePost(idPost);
+
 	}
 
 	getVideoIframe(url) {
@@ -38,4 +40,5 @@ export class PostComponent implements OnInit {
 		window.open(url, '_blank');
 	}
 	
+
 }

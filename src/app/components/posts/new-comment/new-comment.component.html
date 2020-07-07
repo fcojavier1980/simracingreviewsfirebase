@@ -1,0 +1,29 @@
+<section *ngIf="comments$ | async as comments;" style="display: block; float: left; margin-top: 20px;"> 
+    <div *ngFor="let comment of comments">    
+        <div *ngIf="comment.idPost == postIdentifier" class="commented-box">
+            <div>
+                <span *ngIf="postIdentifier != '' "><span style="font-weight: bold;">{{ comment.nombrePost }}</span> comentó el {{ comment.datePost }} </span><br>
+                <span style="font-style: italic;">{{ comment.comentarioPost}}</span>    
+            </div>  
+        </div>   
+    </div>            
+</section>   
+
+<form [formGroup]="newCommentForm" (ngSubmit)="addNewComment(newCommentForm.value)" id="comment-form">  
+    <div>    
+        <div style="float: left;" class="sidebar-item">    
+            <div>
+                <h2 style="float: left;">COMENTA</h2>
+            </div>             
+            <div style="float: left;">
+                <input type="text"  id="nombre-comment" placeholder="Nombre *" formControlName="nombrePost" style="border-radius: 4px; height: 22px; width: 200px; float: left;" class="text-write" >
+                <textarea formControlName="comentarioPost" id="comentario-comment" rows="4" cols="70" placeholder="Comentario *" class="small-text-write" style="border-radius: 4px;"></textarea>                   
+            </div>
+            <div>
+                <input type="submit" value="ENVIAR" class="btn" style="float: left; margin-left: 45%;"/>
+            </div>
+        </div>   
+    </div>    
+</form>
+
+     

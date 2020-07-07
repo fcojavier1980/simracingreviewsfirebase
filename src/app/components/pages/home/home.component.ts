@@ -1,7 +1,9 @@
 import { PostService } from './../../posts/post.service';
+import { CommentService } from './../../posts/comment.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PostI } from '../../../shared/models/post.interface';
+import { CommentI } from '../../../shared/models/comment.interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -19,27 +21,26 @@ declare var $:any;
 export class HomeComponent implements OnInit {
 
 	public searchString: string; 
-	
 	public posts$: Observable<PostI[]>;
 	public postsDate$: Observable<PostI[]>;
-  	constructor(private postSvc: PostService,  public dialog: MatDialog) { }
-
-
+  public comments$: Observable<CommentI[]>;  
+  	constructor(private postSvc: PostService,  public dialog: MatDialog, private commentSvc: CommentService) { }
   	public searchPostForm = new FormGroup({
-    
-    	    titlePost: new FormControl('', Validators.required),
-    contentPost: new FormControl('', Validators.required),
-    tagsPost: new FormControl('', Validators.required),
-    imagePost: new FormControl('', Validators.required),
-    videoUrl: new FormControl('', Validators.required),
-    datePost: new FormControl('', Validators.required),
+      titlePost: new FormControl('', Validators.required),
+      contentPost: new FormControl('', Validators.required),
+      tagsPost: new FormControl('', Validators.required),
+      imagePost: new FormControl('', Validators.required),
+      videoUrl: new FormControl('', Validators.required),
+      datePost: new FormControl('', Validators.required),
   	});
 
-	 ngOnInit(){
+	   ngOnInit(){
 	  	//this.postSvc.getAllPosts().subscribe(res => console.log('POSTS', res));
 	  	this.posts$ = this.postSvc.getAllPosts();
       this.postsDate$ = this.postSvc.getDate();
-	}
+      this.comments$ = this.commentSvc.getAllComments();
+
+	  }
 
     cogerElementos(){
     	var cont = 0;
